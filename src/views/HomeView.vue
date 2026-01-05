@@ -3,36 +3,49 @@
     
     <header class="header">
       <img alt="Logo" class="logo" src="/img/logo.svg" />
+      <img alt="Brand" class="wv" src="/img/wv.svg" />
     </header>
 
+    
     <div class="hero-content">
-
-    <div class="photo-frame">
       
-    </div>
-
       <div class="text-block">
         <h1>WELCOME!</h1>
         <h2>I am Software Engineer</h2>
         <p>I'm an undergraduated Software Engineering Technology at IPB University with many experiences in web development and UI/UX design.</p>
         <div class="social-icons">
-          <img src="/img/ig.svg" class="contact-icon" />
-          <img src="/img/fb.svg" class="contact-icon" />
-          <img src="/img/x.svg" class="contact-icon" />
-          <img src="/img/li.svg" class="contact-icon" />
-          <img src="/img/wa.svg" class="contact-icon" />
+          <a href="https://www.instagram.com/lunfalis/" target="_blank">
+            <img src="/img/ig.svg" class="contact-icon" />
+          </a>
+          <a href="https://www.facebook.com" target="_blank">
+            <img src="/img/fb.svg" class="contact-icon" />
+          </a>
+          <a href="https://www.x.com" target="_blank">
+            <img src="/img/x.svg" class="contact-icon" />
+          </a>
+          <a href="https://www.linkedin.com/in/lunfalis/" target="_blank">
+            <img src="/img/li.svg" class="contact-icon" />
+          </a>
+          <a href="https://wa.me/6287898505218" target="_blank">
+            <img src="/img/wa.svg" class="contact-icon" />
+          </a>
         </div>
       </div>
+
+          <div class="photo-frame">
+            <img alt="Luna Falya" class="photo" src="/img/lucu.svg" />
+         </div>
 
     </div>
   </section>
 
     <section>
       <div class="wave"></div>
+        <img src="/img/3.svg" class="pop" />
+        <img src="/img/3.svg" class="popp" />
+        <img src="/img/bung.svg" class="bung" />
+        <img src="/img/bungs.png" class="bungs" />
     </section>
-
-    <img src="@/assets/pop.png" class="pop" />
-    <img src="@/assets/pop.png" class="popp" />
 
     <section id="about" class="about py-5">
     <div class="container">
@@ -42,24 +55,24 @@
         <div class="about-container">
 
           <div class="about-left">
-              <img src="@/assets/4.png" class="about-photo" />
+              <img src="/img/guehp.png" class="about-photo" />
             </div>
 
             <div class="about-right">
-                          <div class="about-row">
+            <div class="about-row">
               <div class="card small-card">
-                <h5>Who Am I</h5>
+                <h3>Who Am I</h3>
                 <p>Halo, saya <strong>Luna Falya</strong>, mahasiswa di IPB University jurusan Teknologi Rekayasa Perangkat Lunak, fokus pada web front-end.</p>
               </div>
 
               <div class="card small-card">
-                <h5>My Interest</h5>
+                <h3>My Interest</h3>
                 <p>Memiliki pengalaman manajemen logistik, serta mendalami UI/UX design dan front-end programming.</p>
               </div>
             </div>
 
             <div class="card big-card">
-                <h5>Personal Info</h5>
+                <h3>Personal Info</h3>
 
                 <div class="info-grid">
                   <div>
@@ -143,101 +156,32 @@
             <!-- PROJECTS -->
             <div v-show="activeTab === 'projects'" class="portfolio-grid">
 
-              <!-- === Portfolio Item 1 === -->
-
+              <div v-for="project in projects" :key="project.title">
                 <div class="portfolio-card p-3 text-center box">
+
                   <div class="media-wrapper">
-                    <video class="portfolio-media"
-                          controls
-                          style="cursor: pointer;"
-                          @click="openVideoModal(video1)">
-                      <source :src="video1">
+                    <video
+                      class="portfolio-media"
+                      controls
+                      style="cursor: pointer;"
+                      @click="openVideoModal(project.video)"
+                    >
+                      <source :src="project.video" type="video/mp4">
                     </video>
                   </div>
-                  <h5 class="fw-semibold mt-3 captionport">Teka Teki Taki</h5>
-                  <p class="captionport">Game Teka Teki dengan bobot nilai!</p>
-                </div>
 
+                  <h3 class="fw-semibold captionport">
+                    {{ project.title }}
+                  </h3>
 
-              <!-- === Portfolio Item 2 === -->
+                  <h5 class="captionport">
+                    {{ project.description }}
+                  </h5>
 
-                <div class="portfolio-card p-3 text-center box">
-                  <div class="media-wrapper">
-                    <video class="portfolio-media"
-                          controls
-                          @click="openVideoModal(video2)">
-                      <source :src="video2">
-                    </video>
-                  </div>
-                  <h5 class="fw-semibold mt-3 captionport">Mush Room (Final Team Project)</h5>
-                  <p class="captionport">Website Penjualan Jamur</p>
-                  <a href="https://mushroom.miauwlan.com/" target="_blank" style="color: inherit;">Klik disini</a>
-                </div>
-
-
-              <!-- === Portfolio Item 3 === -->
-
-                <div class="portfolio-card p-3 text-center box">
-                  <div class="media-wrapper">
-                    <video class="portfolio-media"
-                          controls
-                          @click="openVideoModal(video3)">
-                      <source :src="video3">
-                    </video>
-                  </div>
-                  <h5 class="fw-semibold mt-3 captionport">Deluxe Hotel</h5>
-                  <p class="captionport">Aplikasi Reservasi Hotel</p>
-                </div>
-
-
-              <!-- === Portfolio Item 4 === -->
-
-                <div class="portfolio-card p-3 text-center box">
-                  <div class="media-wrapper">
-                    <video class="portfolio-media"
-                          controls
-                          @click="openVideoModal(video2)">
-                      <source :src="video2">
-                    </video>
-                  </div>
-                  <h5 class="fw-semibold mt-3 captionport">SpaceXplorer</h5>
-                  <p class="captionport">Gameboard Berbasis AR!</p>
-                  <a href="https://drive.google.com/drive/folders/1a0npsiBXnJnNQqvjLSuUtFRKkIOV6Au-?usp=sharing"
-                    target="_blank" style="color: inherit;">Klik disini</a>
-                </div>
-
-
-              <!-- === Portfolio Item 5 === -->
-
-                <div class="portfolio-card p-3 text-center box">
-                  <div class="media-wrapper">
-                    <video class="portfolio-media"
-                          controls
-                          @click="openVideoModal(video2)">
-                      <source :src="video2">
-                    </video>
-                  </div>
-                  <h5 class="fw-semibold mt-3 captionport">Rahayu Konveksi</h5>
-                  <p class="captionport">Website Manajemen Keuangan Digital</p>
-                  <a href="https://mushroom.miauwlan.com/" target="_blank" style="color: inherit;">Klik disini</a>
-                </div>
-
-
-              <!-- === Portfolio Item 6 === -->
-
-                <div class="portfolio-card p-3 text-center box">
-                  <div class="media-wrapper">
-                    <video class="portfolio-media"
-                          controls
-                          @click="openVideoModal(video2)">
-                      <source :src="video2">
-                    </video>
-                  </div>
-                  <h5 class="fw-semibold mt-3 captionport">Funelish AR</h5>
-                  <p class="captionport">Aplikasi Belajar Bahasa Inggris</p>
                 </div>
               </div>
 
+            </div>
 
             <!-- CERTIFICATES -->
             <div v-show="activeTab === 'certificates'" class="portfolio-grid">
@@ -248,7 +192,7 @@
                       class="img-fluid certif-thumbnail"
                       style="cursor: pointer;"
                       @click="openImageModal(cert.img)">
-                  <h5 class="mt-2">{{ cert.title }}</h5>
+                  <h3 class="fw-semibold captionport">{{ cert.title }}</h3>
                 </div>
               </div>
 
@@ -257,23 +201,21 @@
             <!-- SKILLS -->
             <<div v-show="activeTab === 'skills'" class="portfolio-grid">
 
-              <div v-for="skill in skills" :key="skill.name">
-                <div class="card text-center p-3 shadow-sm">
-                  <img :src="skill.icon" style="width: 50px;" class="mx-auto">
-                  <h5 class="mt-2">{{ skill.name }}</h5>
-                  <div class="progress mt-2" style="height: 8px;">
-                    <div class="progress-bar bg-success" :style="{ width: skill.level + '%' }"></div>
-                  </div>
-                </div>
-              </div>
 
               <!-- Other skills -->
               <div class="text-center mt-4">
-                <h4 class="fw-bold mb-3" style="color: #36005B;">Other Skills</h4>
 
-                <div class="d-flex justify-content-center flex-wrap gap-30">
-                  <img v-for="icon in otherSkills" :src="icon" :key="icon" style="width: 50px;">
+                <div class="other-skills">
+                  <img
+                    v-for="icon in otherSkills"
+                    :key="icon"
+                    :src="icon"
+                    class="skill-icon"
+                    alt="skill"
+                  />
                 </div>
+
+                
               </div>
 
             </div>
@@ -294,25 +236,24 @@
 
 <section id="contact" class="mt-5 space">
   <div class="container">
-    <h2 class="text-center fw-bold mb-4" style="color: #2b1911;">Contact Me</h2>
+    <h2 class="text-center fw-bold mb-4" style="color:#2b1911">Contact Me</h2>
 
-    <p class="lead" style="color: #2b1911;">
+    <p class="lead text-center mb-5" style="color:#2b1911">
       Saya selalu terbuka untuk diskusi, kolaborasi, atau peluang baru.
-      Jangan ragu untuk menghubungi saya melalui kontak di bawah ini:
     </p>
 
-    <div class="row">
-      <!-- Contact Details -->
-      <div class="col-md-6">
+    <!-- FLEX WRAPPER -->
+    <div class="contact-wrapper">
+
+      <!-- LEFT -->
+      <div class="contact-left">
         <div class="contact-details">
 
           <div class="d-flex align-items-center mb-3">
             <img src="@/assets/img/10.png" class="contact-icon me-3" />
             <p class="mb-0">
               Email :
-              <a href="mailto:lunfaliswork@gmail.com" target="_blank">
-                lunfaliswork@gmail.com
-              </a>
+              <a href="mailto:lunfaliswork@gmail.com">lunfaliswork@gmail.com</a>
             </p>
           </div>
 
@@ -320,9 +261,7 @@
             <img src="@/assets/img/11.png" class="contact-icon me-3" />
             <p class="mb-0">
               Phone :
-              <a href="https://wa.me/6287898505218" target="_blank">
-                +62 878 9850 5218
-              </a>
+              <a href="https://wa.me/6287898505218">+62 878 9850 5218</a>
             </p>
           </div>
 
@@ -330,45 +269,50 @@
             <img src="@/assets/img/13.png" class="contact-icon me-3" />
             <p class="mb-0">
               Address :
-              <a href="https://maps.app.goo.gl/vKGhVkY4x3NH7hop7" target="_blank">
-                Tegal Gundil, Bogor Utara, Jawa Barat
-              </a>
+              <a href="https://www.google.com/maps/place/Tegal+Gundil,+Bogor+Utara,+Bogor+City,+West+Java/@-6.5809898,106.8041303,15z/data=!3m1!4b1!4m6!3m5!1s0x2e69c4297bc8178f:0x7519ce71230296c4!8m2!3d-6.5788507!4d106.8148879!16s%2Fg%2F121k2x_h?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">Tegal Gundil, Bogor Utara</a>
             </p>
           </div>
 
           <p class="lead mt-3">
-            Atau, Anda dapat mengirimkan pesan langsung melalui formulir kontak ini.
-            Saya akan segera merespons!
+            Atau, Anda dapat mengirimkan pesan melalui formulir di samping.
           </p>
         </div>
+
+        <img src="/img/5.svg" class="pipp" />
+
       </div>
 
-      <!-- Contact Form -->
-      <div class="col-md-6">
-        <div class="contact-form p-3 rounded">
+    <div class="contact-wrapper">
+      <img src="/img/4.svg" class="pip" />
+
+      <div class="contact-right">
+        <div class="contact-form p-4 rounded">
           <form @submit.prevent="submitContact">
             <div class="mb-3">
-              <label class="form-label">Name</label>
-              <input v-model="form.name" type="text" class="form-control" placeholder="Your Name" required>
+              <label>Name</label>
+              <input class="form-control" required />
             </div>
 
             <div class="mb-3">
-              <label class="form-label">E-mail</label>
-              <input v-model="form.email" type="email" class="form-control" placeholder="Your Email" required>
+              <label>Email</label>
+              <input class="form-control" required />
             </div>
 
             <div class="mb-3">
-              <label class="form-label">Message</label>
-              <textarea v-model="form.message" class="form-control" rows="4" placeholder="Message" required></textarea>
+              <label>Message</label>
+              <textarea class="form-control" rows="4"></textarea>
             </div>
 
-            <button type="submit" class="btn active custom-tab">Send Message</button>
+            <button class="btn active custom-tab">Send Message</button>
           </form>
         </div>
       </div>
     </div>
+
+    </div>
   </div>
 </section>
+
 
 <!-- Footer -->
 <footer class="footer text-center py-3">
@@ -378,19 +322,19 @@
 
     <div class="social-icons">
       <a href="https://www.linkedin.com/in/lunfalis/" target="_blank">
-        <img src="@/assets/img/8.png" class="social-icon" />
+        <img src="/img/li.svg" class="social-icon" />
       </a>
 
       <a href="https://twitter.com" target="_blank">
-        <img src="@/assets/img/7.png" class="social-icon" />
+        <img src="/img/x.svg"  class="social-icon" />
       </a>
 
       <a href="https://www.instagram.com/lunfalis" target="_blank">
-        <img src="@/assets/img/6.png" class="social-icon" />
+        <img src="/img/ig.svg" class="social-icon" />
       </a>
 
-      <a href="https://wa.me/6287898505218" target="_blank">
-        <img src="@/assets/img/9.png" class="social-icon" />
+      <a href="https://www.facebook.com" target="_blank">
+        <img src="/img/fb.svg" class="social-icon" />
       </a>
     </div>
   </div>
@@ -413,6 +357,7 @@
   align-items: flex-start;
   padding: 0px 0px;
   box-sizing: border-box;
+  position: relative;
 }
 
 .hero-content {
@@ -426,6 +371,7 @@
 }
 
 .wave {
+  position: relative;
   width: 100%;
   height: 35vh;
   display: flex;
@@ -443,7 +389,7 @@
   object-fit: cover;
   width: 400px;
   height: auto;
-
+  color: #bd8723;
 }
 
 .pop {
@@ -452,17 +398,41 @@
   top: calc(25vh - 280px); 
   width: 160px;
   z-index: 5;
-
 }
 
 .popp {
   position: relative;
-  right: 120px;
+  right: 20px;
   top: calc(25vh - 280px); 
   width: 160px;
   z-index: 5;
-
 }
+
+.bung {
+  position: relative;
+  left: -320px;
+  top: calc(25vh - 370px); 
+  width: 200px;
+  z-index: 6;
+}
+
+.bungs {
+  position: relative;
+  right: -482px;
+  top: calc(25vh - 370px); 
+  width: 200px;
+  z-index: 6;
+}
+
+.wv {
+  position: absolute;
+  top: 0vh;
+  width: 1202px;
+  z-index: 0;
+  pointer-events: none; /* opsional: biar ga ganggu klik */
+}
+
+
 
 .header {
   display: flex;
@@ -484,16 +454,24 @@
 }
 
 .photo-frame img.photo {
-  width: 700px;
-  height: auto;
-  border-radius: 20px;
+  position: relative;
+  margin-left: 100px;
+  margin-top: 10px; /* NAIKIN TEKS */
   object-fit: cover;
-  left: 100px;
+  width: 600px;
+  height: auto;
 }
 
 .text-block h1 {
   font-size: 60px;
-  color: #d5eaf1;
+  color: #bd8723;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.text-block h2 {
+  font-size: 20px;
+  color: #bd8723;
   font-weight: bold;
   z-index: 10;
 }
@@ -515,12 +493,12 @@
   width: 100%;
   min-height: 100vh;
   display: flex;  /* dorong container ke kanan */
-  padding: 10px 10px;         /* bisa 0 kalau mau tanpa jarak */
+  padding: 10px 0px;         /* bisa 0 kalau mau tanpa jarak */
   box-sizing: border-box;
 }
 
 .about-container {
-  width: 85%;
+  width: 95%;
   max-width: 1400px;
   display: flex;
   justify-content: space-between;
@@ -529,10 +507,19 @@
 }
 
 .about-left {
-  width: 40%;
+  width: 50%;
   display: flex;
+  justify-content: flex-start;
+}
+
+.about-right {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
   justify-content: flex-end;
 }
+
 
 #about h2 {
   font-size: 36px;
@@ -549,10 +536,15 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.card h5 {
+.card h3 {
   color: #2b1911;
-  margin-bottom: 10px;
+  margin-top: 10px;
   font-weight: 900;
+  text-align: center;
+
+  line-height: 1.2;
+  height: 2.4em;  /* 2 baris */
+  overflow: hidden;
 }
 
 .card p {
@@ -577,23 +569,15 @@
   border-radius: 10px;
 }
 
-.about-right {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-
-}
-
 .about-photo {
-  width: 550px;
+  width: 650px;
   height: auto;
-  align-items: flex-end;   /* ⬅ Konten pindah ke kiri */
+  align-items: flex-start;   /* ⬅ Konten pindah ke kiri */
 }
 
 .about-row {
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 
 .small-card {
@@ -614,6 +598,7 @@
 
 
 
+
 /* porto */
 .modal-backdrop-custom {
   position: fixed;
@@ -626,9 +611,15 @@
 }
 
 .modal-video {
-  width: 80%;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;   /* ⬅ ini kuncinya */
   border-radius: 12px;
+  background: black;
 }
+
 
 .modal-image {
   max-width: 80%;
@@ -663,7 +654,7 @@
 }
 
 .tab-btn {
-  background: #e7f6ff;
+  background: #bec1a6;
   color: #2b1911;
   border: none;
   padding: 10px 24px;
@@ -675,7 +666,7 @@
 }
 
 .tab-btn:hover {
-  background: #d1efff;
+  background: #b6966a;
 }
 
 .tab-btn.active {
@@ -687,6 +678,25 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
+}
+
+.skill-card{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-card h3{
+    text-align: center;
+  line-height: 1.2;
+  max-height: 2.4em;
+  overflow: hidden;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;   /* max 2 baris */
+  -webkit-box-orient: vertical;
 }
 
 .portfolio-card {
@@ -739,13 +749,27 @@
     margin-bottom: 40px; /* Adds space below the contact section */
     margin-top: 40px;
 }
+
+.pip {
+  position: absolute;
+  top: -105px;        /* naik ke atas form */
+  right: 280px;       /* atau left: 40px */
+  width: 160px;
+  z-index: 10;
+}
+
+.contact-wrapper {
+  position: relative;
+  color: #2b1911;
+}
+
 /* Form Container */
 
 .contact-form {
     max-width: 320px; /* Controls the width */
     margin: 0 auto; /* Centers the form */
-    border: 2px solid #2b1911;
-    background-color: #2b1911;
+    border: 2px solid #2b191143;
+    background-color: #2b191100;
     padding: 50px;
     box-shadow: 0 8px 8px 10px rgba(0, 42, 87, 0.1);
     border-radius: 30px !important; /* Makes the form container rounded */
@@ -754,13 +778,13 @@
 
 .contact-form input,
 .contact-form textarea {
-    border: 1px solid #e4ff8d;
+    border: 1px solid #342d00;
     border-radius: 5px; /* Rounds input fields and textarea */
     padding: 8px 10px;
     width: 100%;
     box-sizing: border-box; /* Ensures padding doesn't add to width */
     margin-bottom: 10px; /* Adds spacing between fields */
-    background-color: #fdffe1;
+    background-color: #928c71;
 }
 
 .contact-form textarea {
@@ -771,16 +795,16 @@
     display: inline-block;
     font-size: 14px;
     padding: 8px 12px;
-    background-color: #7b805c;
-    color: #d2e4ff;
+    background-color: #442700;
+    color: rgb(252, 253, 176);
     border: none;
-    border-radius: 12px; /* Rounds the button */
+    border-radius: 7px; /* Rounds the button */
     cursor: pointer;
 }
 
 .contact-form button:hover {
-    background-color: #e1ffff;
-    color: rgb(0, 53, 76);
+    background-color: #7b805c;
+    color: #d2e4ff;
 }
 
 
@@ -818,6 +842,76 @@
     font-weight: 500;
 }
 
+.contact-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* LEFT */
+.contact-left {
+  flex: 1;
+}
+
+/* RIGHT */
+.contact-right {
+  flex: 1;
+  margin-right: 220px;
+}
+
+#contact h2 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #2b1911 !important;
+  justify-content: center;    /* ⬅ tab di tengah */
+  align-items: center; 
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column;
+  }
+}
+
+.pipp {
+  position: relative;
+  left: 120px;
+  top: calc(25vh - 180px); 
+  width: 260px;
+  z-index: 5;
+
+}
+
+
+/* other skills */
+.other-skills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+/* icon default */
+.skill-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+/* icon yang di-hover */
+.skill-icon:hover {
+  transform: scale(1.6);
+  z-index: 2;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.25));
+}
+
+/* optional: biar fokus ke icon yang di-hover */
+.other-skills:hover .skill-icon:not(:hover) {
+  filter: grayscale(60%) opacity(0.6);
+}
 
 
 
@@ -852,9 +946,6 @@
 import { ref } from "vue";
 
 const activeTab = ref("projects");
-const video1 = "/video/tekateki.mp4";
-const video2 = "/video/mushroom.mp4";
-const video3 = "/video/deluxe.mp4";
 const showVideo = ref(false);
 const currentVideo = ref("");
 
@@ -863,6 +954,44 @@ const openVideoModal = (src) => {
   showVideo.value = true;
 };
 const closeVideo = () => (showVideo.value = false);
+
+const projects = [
+  {
+    video: "/video/tekateki.mp4",
+    title: "Teka Teki Taki",
+    description: "Game Teka Teki dengan bobot nilai!"
+  },
+  {
+    video: "/video/mushroom.mp4",
+    title: "Mush Room (Final Team Project)",
+    description: "Website Penjualan Jamur"
+  },
+  {
+    video: "/video/deluxe.mp4",
+    title: "Deluxe Hotel",
+    description: "Aplikasi Reservasi Hotel"
+  },
+  {
+    video: "/video/mushroom.mp4",
+    title: "SpaceXplorer",
+    description: "Gameboard Berbasis AR!"
+  },
+  {
+    video: "/video/mushroom.mp4",
+    title: "Rahayu Konveksi",
+    description: "Website Manajemen Keuangan Digital"
+  },
+  {
+    video: "/video/elashie.mp4",
+    title: "Lashie Lust",
+    description: "Website E-commerce Lashie Lust"
+  },
+    {
+    video: "/video/alashie.mp4",
+    title: "Admin Lashie Lust",
+    description: "Website Admin Lashie Lust"
+  }
+];
 
 // Certificates
 const certificates = [
@@ -876,19 +1005,20 @@ const certificates = [
 
 // Skills
 const skills = [
-  { icon: "/img/html.png", name: "HTML", level: 70 },
-  { icon: "/img/css.png", name: "CSS", level: 68 },
-  { icon: "/img/js.png", name: "JavaScript", level: 60 },
-  { icon: "/img/androidstudio.png", name: "MySQL", level: 55 },
-  { icon: "/img/mysql.png", name: "PHP", level: 50 },
-  { icon: "/img/scratch.jpg", name: "Scratch", level: 45 },
+  { icon: "/img/html.png", name: "HTML" },
+  { icon: "/img/css.png", name: "CSS"},
+  { icon: "/img/js.png", name: "JavaScript" },
+  { icon: "/img/androidstudio.png", name: "MySQL" },
+  { icon: "/img/mysql.png", name: "PHP" },
+  { icon: "/img/scratch.jpg", name: "Scratch" },
 ];
 
 // Other skills icons
 const otherSkills = [
   "/img/word.png", "/img/ppt.png", "/img/figma.jpg", "/img/canva.png",
   "/img/excel.png", "/img/capcut.png", "/img/thunkable.png",
-  "/img/rstudio.png", "/img/postman.png"
+  "/img/rstudio.png", "/img/postman.png", "/img/html.png", "/img/css.png", "/img/js.png",
+  "/img/androidstudio.png", "/img/mysql.png",  "/img/scratch.jpg"
 ];
 
 // Modal image logic
