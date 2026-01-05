@@ -33,7 +33,7 @@
       </div>
 
           <div class="photo-frame">
-            <img alt="Luna Falya" class="photo" src="/img/lucu.svg" />
+            <img alt="Luna Falya" class="photo" src="/img/mei.svg" />
          </div>
 
     </div>
@@ -282,32 +282,53 @@
 
       </div>
 
-    <div class="contact-wrapper">
-      <img src="/img/4.svg" class="pip" />
+<div class="contact-wrapper">
+    <img src="/img/4.svg" class="pip" />
 
-      <div class="contact-right">
-        <div class="contact-form p-4 rounded">
-          <form @submit.prevent="submitContact">
-            <div class="mb-3">
-              <label>Name</label>
-              <input class="form-control" required />
-            </div>
+    <div class="contact-right">
+      <div class="contact-form p-4 rounded">
+        <form @submit.prevent="submitContact">
+          <div class="mb-3">
+            <label>Name</label>
+            <input
+              type="text"
+              class="form-control"
+              v-model="form.name"
+              required
+            />
+          </div>
 
-            <div class="mb-3">
-              <label>Email</label>
-              <input class="form-control" required />
-            </div>
+          <div class="mb-3">
+            <label>Email</label>
+            <input
+              type="email"
+              class="form-control"
+              v-model="form.email"
+              required
+            />
+          </div>
 
-            <div class="mb-3">
-              <label>Message</label>
-              <textarea class="form-control" rows="4"></textarea>
-            </div>
+          <div class="mb-3">
+            <label>Message</label>
+            <textarea
+              class="form-control"
+              rows="4"
+              v-model="form.message"
+              required
+            ></textarea>
+          </div>
 
-            <button class="btn active custom-tab">Send Message</button>
-          </form>
-        </div>
+          <button
+            class="btn active custom-tab w-100"
+            type="submit"
+            :disabled="loading"
+          >
+            {{ loading ? "Sending..." : "Send Message" }}
+          </button>
+        </form>
       </div>
     </div>
+  </div>
 
     </div>
   </div>
@@ -344,7 +365,52 @@
       
 </template>
 
-<script setup>
+<script>
+  import emailjs from "emailjs-com";
+
+export default {
+  name: "Contact",
+  data() {
+    return {
+      loading: false,
+      form: {
+        name: "",
+        email: "",
+        message: "",
+      },
+    };
+  },
+  methods: {
+    submitContact() {
+      this.loading = true;
+
+      emailjs
+        .send(
+          "SERVICE_ID_KAMU",
+          "TEMPLATE_ID_KAMU",
+          {
+            name: this.form.name,
+            email: this.form.email,
+            message: this.form.message,
+          },
+          "PUBLIC_KEY_KAMU"
+        )
+        .then(() => {
+          alert("Message sent successfully!");
+          this.form.name = "";
+          this.form.email = "";
+          this.form.message = "";
+        })
+        .catch((error) => {
+          console.error("EmailJS Error:", error);
+          alert("Failed to send message");
+        })
+        .finally(() => {
+          this.loading = false;
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>
