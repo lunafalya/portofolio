@@ -32,10 +32,6 @@
         </div>
       </div>
 
-          <div class="photo-frame">
-            <img alt="Luna Falya" class="photo" src="/img/mei.svg" />
-         </div>
-
     </div>
   </section>
 
