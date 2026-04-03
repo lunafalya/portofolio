@@ -17,8 +17,8 @@
           <a href="https://www.instagram.com/lunfalis/" target="_blank">
             <img src="/img/ig.svg" class="contact-icon" />
           </a>
-          <a href="https://www.facebook.com" target="_blank">
-            <img src="/img/fb.svg" class="contact-icon" />
+          <a href="https://github.com/lunafalya" target="_blank">
+            <img src="/img/git.png" class="contact-icon" />
           </a>
           <a href="https://www.x.com" target="_blank">
             <img src="/img/x.svg" class="contact-icon" />
@@ -342,7 +342,7 @@
         <img src="/img/li.svg" class="social-icon" />
       </a>
 
-      <a href="https://twitter.com" target="_blank">
+      <a href="https://x.com/lunfalisz" target="_blank">
         <img src="/img/x.svg"  class="social-icon" />
       </a>
 
@@ -350,8 +350,8 @@
         <img src="/img/ig.svg" class="social-icon" />
       </a>
 
-      <a href="https://www.facebook.com" target="_blank">
-        <img src="/img/fb.svg" class="social-icon" />
+      <a href="https://github.com/lunafalya" target="_blank">
+        <img src="/img/git.png" class="social-icon" />
       </a>
     </div>
   </div>
