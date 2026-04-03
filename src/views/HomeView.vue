@@ -20,7 +20,7 @@
           <a href="https://github.com/lunafalya" target="_blank">
             <img src="/img/git.png" class="contact-icon" />
           </a>
-          <a href="https://www.x.com" target="_blank">
+          <a href="https://x.com/lunfalisz" target="_blank">
             <img src="/img/x.svg" class="contact-icon" />
           </a>
           <a href="https://www.linkedin.com/in/lunfalis/" target="_blank">
