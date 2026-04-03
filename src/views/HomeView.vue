@@ -101,7 +101,7 @@
                   </div>
                 </div>
 
-                <a href="/certificate/Luna Falya Iskandar-resume.pdf" class="resume-btn">⬇ Download My Resume</a>
+                <a href="/certificate/resume.pdf" class="resume-btn">⬇ Download My Resume</a>
               </div>
             </div>
 
